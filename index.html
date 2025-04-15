@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Freelance Projects</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>My Freelance Web Development Projects</h1>
+      <p>A showcase of my work, skills, and client collaborations.</p>
+    </header>
+    <div class="container">
+      <section id="projects">
+        <div class="project-grid">
+          <div class="project-image">
+            <video autoplay muted loop playsinline>
+              <source src="assets/project1.mp4" type="video/mp4" />
+            </video>
+            <div class="project-description">
+              <h1>Illusion Security</h1>
+              <p>Security training startup | 2025 - present</p>
+              <p>
+                Built scalable web app using Next.js and Python with modern
+                UI/UX and distributed architecture.
+              </p>
+            </div>
+          </div>
+
+          <div class="clients-section">
+            <h4>Clients</h4>
+            <div class="clients-grid">
+              <div class="client">
+                <p><strong>Name :</strong> Arghadip Banerjee</p>
+                <p>
+                  <a
+                    href="https://www.linkedin.com/in/arghadip-banerjee/"
+                    target="_blank"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </p>
+              </div>
+              <div class="client">
+                <p><strong>Name :</strong> Gourav Mitra</p>
+                <p>
+                  <a
+                    href="https://www.linkedin.com/in/gouravmitra089/"
+                    target="_blank"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <h4>Testimonial</h4>
+            <blockquote>
+              “Working with this developer has been an absolute pleasure. The
+              attention to detail and dedication to performance were evident in
+              every step.”
+              <br /><span>- Arghadip & Gourav</span>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const projectCards = document.querySelectorAll(".project-card");
+
+      function checkSlide() {
+        projectCards.forEach((card) => {
+          const slideInAt =
+            window.scrollY + window.innerHeight - card.offsetHeight / 2;
+          const cardBottom = card.offsetTop + card.offsetHeight;
+          const isHalfShown = slideInAt > card.offsetTop;
+          const isNotScrolledPast = window.scrollY < cardBottom;
+
+          if (isHalfShown && isNotScrolledPast) {
+            card.classList.add("slide-in");
+          } else {
+            card.classList.remove("slide-in");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", checkSlide);
+      window.addEventListener("resize", checkSlide);
+      checkSlide();
+    </script>
+  </body>
+</html>
+
+<!-- <div class="project-image">
+            <img src="project1.png" alt="Homepage Preview" />
+            <div class="image-wave"></div>
+            <div class="project-description">
+              <h1>Illusion Security</h1>
+              <p>Security training startup | 2025 - present</p>
+              <p>
+                Built scalable web app using Next.js and Python with modern
+                UI/UX and distributed architecture.
+              </p>
+            </div>
+          </div> -->
