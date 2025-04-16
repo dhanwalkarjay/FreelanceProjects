@@ -239,6 +239,10 @@ footer {
   .project-description {
     font-size: 0.5em;
   }
+
+  .fancy-header {
+    font-size: 0.6em;
+  }
 }
 
 .not-hosted-badge {
