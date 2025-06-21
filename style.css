@@ -245,6 +245,7 @@ footer {
   }
 }
 
+/* for not hosted yet */
 .not-hosted-badge {
   position: absolute;
   top: 10px;
@@ -271,6 +272,43 @@ footer {
   }
   100% {
     box-shadow: 0 0 6px rgba(255, 0, 0, 0.6);
+  }
+}
+
+/* for hosted  */
+
+.live-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 200, 0, 0.85);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  z-index: 3;
+  animation: pulseGlowGreen 1.5s infinite;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.live-badge:hover {
+  transform: scale(1.05);
+}
+
+@keyframes pulseGlowGreen {
+  0% {
+    box-shadow: 0 0 6px rgba(0, 255, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 6px rgba(0, 255, 0, 0.6);
   }
 }
 
