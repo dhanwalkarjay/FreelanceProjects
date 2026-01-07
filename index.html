@@ -1,151 +1,489 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Freelance Projects</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Freelance Projects Showcase</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
       rel="stylesheet"
     />
     <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-  </head>
-  <body>
-    <header class="fancy-header">
-      <h1>Freelance Projects</h1>
-      <p>A showcase of my work, skills, and client collaborations</p>
-      <div class="curly-brace"></div>
-    </header>
-    <div class="container">
-      <section id="projects">
-        <div class="project-grid">
-          <div class="project-image">
-            <!-- <div class="not-hosted-badge">
-              <i class="fas fa-exclamation-circle"></i> Not Hosted
-            </div> -->
-            <a
-              href="https://illusionsecurity.tech/"
-              target="_blank"
-              class="live-badge"
-            >
-              <i class="fas fa-bolt"></i> Live
-            </a>
-
-            <video autoplay muted loop playsinline>
-              <source src="assets/project1.mp4" type="video/mp4" />
-            </video>
-            <div class="project-description">
-              <h1>Illusion Security</h1>
-              <p>Security training startup | 2025 - present</p>
-              <p>
-                Built scalable web app using Next.js and Python with modern
-                UI/UX and distributed architecture.
-              </p>
-            </div>
-          </div>
-
-          <div class="clients-section">
-            <h4>Clients</h4>
-            <div class="clients-grid">
-              <div class="client">
-                <p><strong>Name :</strong> Arghadip Banerjee</p>
-                <p>
-                  <a
-                    href="https://www.linkedin.com/in/arghadip-banerjee/"
-                    target="_blank"
-                    ><i class="fab fa-linkedin"></i
-                  ></a>
-                </p>
-              </div>
-              <div class="client">
-                <p><strong>Name :</strong> Gourav Mitra</p>
-                <p>
-                  <a
-                    href="https://www.linkedin.com/in/gouravmitra089/"
-                    target="_blank"
-                    ><i class="fab fa-linkedin"></i
-                  ></a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial">
-            <h4>Testimonial</h4>
-            <blockquote>
-              “Working with this developer has been an absolute pleasure. The
-              attention to detail and dedication to performance were evident in
-              every step.”
-              <br /><span>- Arghadip & Gourav</span>
-            </blockquote>
-          </div>
-        </div>
-      </section>
-    </div>
-    <footer>
-      <div class="footer-content">
-        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
-        <div class="social-links">
-          <a
-            href="https://github.com/dhanwalkarjay"
-            target="_blank"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/jay-dhanwalkar-775058233/"
-            target="_blank"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="mailto:jaydhanwalkar123@gmail.com" aria-label="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
-        </div>
-      </div>
-    </footer>
-
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script>
-      const projectCards = document.querySelectorAll(".project-card");
-
-      function checkSlide() {
-        projectCards.forEach((card) => {
-          const slideInAt =
-            window.scrollY + window.innerHeight - card.offsetHeight / 2;
-          const cardBottom = card.offsetTop + card.offsetHeight;
-          const isHalfShown = slideInAt > card.offsetTop;
-          const isNotScrolledPast = window.scrollY < cardBottom;
-
-          if (isHalfShown && isNotScrolledPast) {
-            card.classList.add("slide-in");
-          } else {
-            card.classList.remove("slide-in");
-          }
-        });
-      }
-
-      window.addEventListener("scroll", checkSlide);
-      window.addEventListener("resize", checkSlide);
-      checkSlide();
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#3b82f6", // Keeping blue as requested context
+              "primary-dark": "#1d4ed8",
+              secondary: "#64748b",
+              "dark-bg": "#0f172a", // Slate 900
+              "card-dark": "#1e293b", // Slate 800
+            },
+            fontFamily: {
+              display: ["Manrope", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
+              glow: "0 0 15px rgba(59, 130, 246, 0.15)",
+            },
+          },
+        },
+      };
     </script>
+    <style>
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #334155;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background: #475569;
+      }
+      .gradient-text {
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-50 dark:bg-dark-bg text-slate-900 dark:text-slate-100 font-body antialiased selection:bg-primary/20 selection:text-primary"
+  >
+    <div class="relative flex min-h-screen w-full flex-col">
+      <header
+        class="sticky top-0 z-40 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-lg transition-all duration-300"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 items-center justify-between">
+            <div class="flex items-center gap-2 cursor-pointer group">
+              <div
+                class="relative flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/20 transition-all duration-300 group-hover:scale-105 group-hover:rotate-3"
+              >
+                <span class="material-symbols-outlined text-[20px]"
+                  >terminal</span
+                >
+              </div>
+              <span
+                class="font-display text-xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+              >
+                Jay<span class="text-primary">D.</span>
+              </span>
+            </div>
+            <div class="flex items-center gap-4">
+              <a
+                href="https://linkedin.com/in/jay-dhanwalkar-775058233"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hidden md:flex items-center gap-2 px-5 py-2 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-bold shadow-lg shadow-slate-900/10 dark:shadow-white/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <span>Contact Me</span>
+                <span class="material-symbols-outlined text-[16px]">
+                  arrow_forward
+                </span>
+              </a>
+
+              <button class="md:hidden p-2 text-slate-600 dark:text-slate-300">
+                <span class="material-symbols-outlined">menu</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="flex-1 w-full flex flex-col items-center">
+        <section
+          class="w-full relative pt-20 pb-16 px-4 flex flex-col items-center text-center overflow-hidden"
+        >
+          <div
+            class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-slate-50/0 to-transparent dark:from-primary/10 dark:via-dark-bg/0"
+          ></div>
+          <span
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6 border border-primary/20"
+          >
+            <span
+              class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"
+            ></span>
+            Portfolio 2026
+          </span>
+          <h1
+            class="font-display text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 dark:text-white mb-6 max-w-4xl leading-[1.1]"
+          >
+            <span
+              class="bg-gradient-to-r from-primary to-indigo-500 gradient-text"
+              >Freelance</span
+            >
+            Work
+          </h1>
+          <p
+            class="text-slate-500 dark:text-slate-400 text-lg md:text-xl font-medium max-w-2xl leading-relaxed"
+          >
+            A collection of high-impact digital products built for innovative
+            clients. Focusing on performance, accessibility, and user-centric
+            design.
+          </p>
+        </section>
+        <div
+          class="w-full max-w-6xl px-4 md:px-8 pb-32 flex flex-col gap-20 md:gap-24"
+        >
+          <article
+            class="group relative bg-white dark:bg-card-dark rounded-[2.5rem] p-3 border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
+          >
+            <div class="flex flex-col gap-6">
+              <div
+                class="relative w-full aspect-[16/10] md:aspect-[2/1] rounded-[2rem] overflow-hidden bg-slate-100 dark:bg-slate-900"
+              >
+                <div class="absolute top-5 right-5 z-20">
+                  <a
+                    class="flex items-center gap-1.5 bg-white/90 dark:bg-black/80 backdrop-blur text-emerald-600 dark:text-emerald-400 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg hover:scale-105 transition-transform border border-white/20"
+                    href="https://www.welurik.com/"
+                  >
+                    <span class="relative flex h-2 w-2">
+                      <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+                      ></span>
+                      <span
+                        class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
+                      ></span>
+                    </span>
+                    Live Project
+                  </a>
+                </div>
+                <div
+                  class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  style="background-image: url('assets/project-2/image.png')"
+                ></div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex flex-col justify-end p-6 md:p-10 lg:p-12"
+                >
+                  <div
+                    class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
+                  >
+                    <h3
+                      class="font-display text-2xl md:text-4xl font-bold text-white mb-3"
+                    >
+                      Digital Marketing Platform
+                    </h3>
+                    <p
+                      class="text-slate-200 text-sm md:text-base max-w-xl leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100"
+                    >
+                      Comprehensive marketing dashboard enabling users to track
+                      campaign performance across multiple channels in
+                      real-time.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-6 px-4 pb-4">
+                <div class="md:col-span-5 flex flex-col justify-center">
+                  <h4
+                    class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2"
+                  >
+                    <span
+                      class="w-8 h-[1px] bg-slate-300 dark:bg-slate-700"
+                    ></span>
+                    Client
+                  </h4>
+                  <div
+                    class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 border border-slate-100 dark:border-slate-700/50 flex items-center gap-4 group/client hover:border-primary/30 transition-colors"
+                  >
+                    <div
+                      class="h-12 w-12 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 text-blue-600 flex items-center justify-center font-bold text-sm shadow-inner"
+                    >
+                      AP
+                    </div>
+                    <div class="flex flex-col flex-1">
+                      <span
+                        class="text-slate-900 dark:text-white font-bold text-sm"
+                        >Ankit Parasutkar</span
+                      >
+                      <span
+                        class="text-slate-500 dark:text-slate-400 text-xs font-medium"
+                        >Marketing Lead</span
+                      >
+                    </div>
+                    <a
+                      class="h-8 w-8 rounded-full bg-white dark:bg-slate-700 flex items-center justify-center text-slate-400 hover:text-primary hover:bg-primary/5 transition-all shadow-sm"
+                      href="https://welurik.com/"
+                    >
+                      <span class="material-symbols-outlined text-sm"
+                        >link</span
+                      >
+                    </a>
+                  </div>
+                </div>
+                <div class="md:col-span-7">
+                  <div
+                    class="h-full bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 md:p-8 border border-slate-100 dark:border-slate-700/50 relative overflow-hidden group/testimonial"
+                  >
+                    <span
+                      class="material-symbols-outlined absolute top-4 right-4 text-6xl text-slate-200 dark:text-slate-700/50 select-none transition-transform group-hover/testimonial:scale-110 group-hover/testimonial:rotate-12"
+                      >format_quote</span
+                    >
+                    <p
+                      class="relative z-10 text-slate-700 dark:text-slate-300 text-sm md:text-base italic leading-relaxed font-medium"
+                    >
+                      "An outstanding professional who truly cares about the
+                      craft. Every detail was thoughtfully executed, with
+                      performance always kept front and center. The dashboard
+                      has transformed how we report to our stakeholders."
+                    </p>
+                    <div class="relative z-10 mt-4 flex items-center gap-2">
+                      <div class="h-0.5 w-4 bg-primary/50"></div>
+                      <span
+                        class="text-xs font-bold text-primary uppercase tracking-wide"
+                        >Ankit</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article
+            class="group relative bg-white dark:bg-card-dark rounded-[2.5rem] p-3 border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
+          >
+            <div class="flex flex-col gap-6">
+              <div
+                class="relative w-full aspect-[16/10] md:aspect-[2/1] rounded-[2rem] overflow-hidden bg-slate-900"
+              >
+                <div class="absolute top-5 right-5 z-20">
+                  <a
+                    class="flex items-center gap-1.5 bg-white/90 dark:bg-black/80 backdrop-blur text-emerald-600 dark:text-emerald-400 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg hover:scale-105 transition-transform border border-white/20"
+                    href="https://illusionsecurity.tech/"
+                  >
+                    <span class="relative flex h-2 w-2">
+                      <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+                      ></span>
+                      <span
+                        class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
+                      ></span>
+                    </span>
+                    Live Project
+                  </a>
+                </div>
+                <div
+                  class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-60"
+                  style="background-image: url('assets/video-poster.png')"
+                ></div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent"
+                ></div>
+                <div
+                  class="absolute inset-0 flex flex-col justify-center p-8 md:p-16 max-w-2xl"
+                >
+                  <div
+                    class="transform translate-x-4 group-hover:translate-x-0 transition-transform duration-500"
+                  >
+                    <div class="flex items-center gap-2 mb-4">
+                      <span
+                        class="px-2 py-0.5 rounded text-[10px] font-mono text-green-400 bg-green-900/30 border border-green-500/30"
+                        >CYBERSECURITY</span
+                      >
+                      <span
+                        class="px-2 py-0.5 rounded text-[10px] font-mono text-blue-400 bg-blue-900/30 border border-blue-500/30"
+                        >AI</span
+                      >
+                    </div>
+                    <h3
+                      class="font-display text-3xl md:text-5xl font-black text-white mb-4 leading-tight"
+                    >
+                      Illusion Security <br />Training Platform
+                    </h3>
+                    <p
+                      class="text-slate-300 text-sm md:text-base font-mono mb-6 max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100"
+                    >
+                      Next-gen hacking simulation for elite teams. Built with
+                      Next.js &amp; Python for scalable, real-time scenarios.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-6 px-4 pb-4">
+                <div class="md:col-span-5 flex flex-col justify-center">
+                  <h4
+                    class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2"
+                  >
+                    <span
+                      class="w-8 h-[1px] bg-slate-300 dark:bg-slate-700"
+                    ></span>
+                    Clients
+                  </h4>
+                  <div class="flex flex-col gap-3">
+                    <div
+                      class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-3 border border-slate-100 dark:border-slate-700/50 flex items-center gap-4 hover:border-primary/30 transition-colors"
+                    >
+                      <div
+                        class="h-10 w-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-xs"
+                      >
+                        AB
+                      </div>
+                      <div class="flex flex-col flex-1">
+                        <span
+                          class="text-slate-900 dark:text-white font-bold text-xs"
+                          >Arghadip Banerjee</span
+                        >
+                        <span
+                          class="text-slate-500 dark:text-slate-400 text-[10px]"
+                          >Co-Founder</span
+                        >
+                      </div>
+                      <a
+                        class="text-slate-400 hover:text-primary px-2"
+                        href="https://www.linkedin.com/in/arghadip-banerjee/"
+                        ><span class="material-symbols-outlined text-base"
+                          >link</span
+                        ></a
+                      >
+                    </div>
+                    <div
+                      class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-3 border border-slate-100 dark:border-slate-700/50 flex items-center gap-4 hover:border-primary/30 transition-colors"
+                    >
+                      <div
+                        class="h-10 w-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-xs"
+                      >
+                        GM
+                      </div>
+                      <div class="flex flex-col flex-1">
+                        <span
+                          class="text-slate-900 dark:text-white font-bold text-xs"
+                          >Gourav Mitra</span
+                        >
+                        <span
+                          class="text-slate-500 dark:text-slate-400 text-[10px]"
+                          >CTO</span
+                        >
+                      </div>
+                      <a
+                        class="text-slate-400 hover:text-primary px-2"
+                        href="https://www.linkedin.com/in/gouravmitra089/"
+                        ><span class="material-symbols-outlined text-base"
+                          >link</span
+                        ></a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="md:col-span-7">
+                  <div
+                    class="h-full bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 md:p-8 border border-slate-100 dark:border-slate-700/50 relative overflow-hidden group/testimonial flex flex-col justify-center"
+                  >
+                    <span
+                      class="material-symbols-outlined absolute top-4 right-4 text-6xl text-slate-200 dark:text-slate-700/50 select-none transition-transform group-hover/testimonial:scale-110 group-hover/testimonial:rotate-12"
+                      >format_quote</span
+                    >
+                    <p
+                      class="relative z-10 text-slate-700 dark:text-slate-300 text-sm md:text-base italic leading-relaxed font-medium"
+                    >
+                      "Working with this developer has been an absolute
+                      pleasure. The attention to detail and dedication to
+                      performance were evident in every step. We managed to
+                      launch our MVP 2 weeks ahead of schedule."
+                    </p>
+                    <div class="relative z-10 mt-4 flex items-center gap-2">
+                      <div class="h-0.5 w-4 bg-primary/50"></div>
+                      <span
+                        class="text-xs font-bold text-primary uppercase tracking-wide"
+                        >Arghadip &amp; Gourav</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </main>
+      <footer
+        class="w-full bg-slate-900 dark:bg-[#0b1116] border-t border-slate-800 py-16"
+      >
+        <div
+          class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col items-center gap-10"
+        >
+          <div class="flex flex-col items-center gap-4 text-center">
+            <div
+              class="h-14 w-14 text-primary bg-primary/10 rounded-2xl flex items-center justify-center mb-2 border border-primary/20"
+            >
+              <span class="material-symbols-outlined text-3xl">terminal</span>
+            </div>
+            <h3
+              class="font-display text-2xl font-bold text-white tracking-tight"
+            >
+              Let's build something amazing.
+            </h3>
+            <p class="text-slate-400 max-w-sm text-sm leading-relaxed">
+              Crafting digital experiences that merge functionality with
+              exceptional design for forward-thinking brands.
+            </p>
+          </div>
+          <div class="flex flex-wrap justify-center gap-6">
+            <a
+              class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/50 transition-all group"
+              href="https://github.com/dhanwalkarjay"
+            >
+              <img
+                alt="GitHub"
+                class="w-5 h-5 filter invert opacity-70 group-hover:opacity-100 transition-opacity"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSbqcHI6bBWAxmkqW_pqHjqvLfY0TMk-mz_szT26pRRuIxhmDy-KMr-kCw_ZtOc9QaBIa2sMZQnS7_EEnKMSz7L43KhZNfeNd1zwXM5-HY4v9HcE1UxRBLAF7_LgmawxqGPRDC9o31qMJCYVBRhr4X_KLWVJ9OYJJestOfPObB0trr8IcrGOFaheI-sDyakc4w0aR0SatS7UR3AtU3YTASxjLaPEiztv5lcf5ZoQQGHop2DvLgTgdjojIbpHfHvPUA6DT3ID-bDOQ"
+              />
+              <span
+                class="text-sm font-semibold text-slate-300 group-hover:text-white"
+                >GitHub</span
+              >
+            </a>
+            <a
+              class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/50 transition-all group"
+              href="https://linkedin.com/in/jay-dhanwalkar-775058233"
+            >
+              <img
+                alt="LinkedIn"
+                class="w-5 h-5 filter invert opacity-70 group-hover:opacity-100 transition-opacity"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzc8I49oaxFGYUoLAvqCU1zeg7LpCeN0tls7F5xZbYHFaGN8J51Q-yVviA_6pVh3xYBeTo8E8SIZ2AhNLB-Dl-bz5i4UuIi0yiR53RA9IOl-whBNjUZ8UYYX_LKWf5w239akMDwZnS6hNx7QqoP53FZZqGCSOfWubeQogTNCg5OyDRDYbbty40SNrZSglIV48o9wcPa7CkMahfvv1BIhu1Jx0jjE0bPNReifJywo1Lm7WFjlXtqx07XR2KCbXYRXh4fWArU2XjZm0"
+              />
+              <span
+                class="text-sm font-semibold text-slate-300 group-hover:text-white"
+                >LinkedIn</span
+              >
+            </a>
+            <a
+              class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/50 transition-all group"
+              href="mailto:jaydhanwalkar123@gmail.com"
+            >
+              <span
+                class="material-symbols-outlined text-lg text-slate-300 group-hover:text-white"
+                >mail</span
+              >
+              <span
+                class="text-sm font-semibold text-slate-300 group-hover:text-white"
+                >Email</span
+              >
+            </a>
+          </div>
+          <div
+            class="w-full h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent max-w-md mx-auto"
+          ></div>
+          <p class="text-slate-500 text-xs">
+            © 2026 Jay Dhanwalkar Portfolio. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
-
-<!-- <div class="project-image">
-            <img src="project1.png" alt="Homepage Preview" />
-            <div class="image-wave"></div>
-            <div class="project-description">
-              <h1>Illusion Security</h1>
-              <p>Security training startup | 2025 - present</p>
-              <p>
-                Built scalable web app using Next.js and Python with modern
-                UI/UX and distributed architecture.
-              </p>
-            </div>
-          </div> -->
